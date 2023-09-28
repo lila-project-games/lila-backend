@@ -20,5 +20,4 @@ public class School {
     private Long idSchool;
     @Column(nullable = false)
     private String schoolName;
-
 }
