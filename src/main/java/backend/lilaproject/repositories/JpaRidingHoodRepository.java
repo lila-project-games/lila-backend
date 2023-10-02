@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RidingHoodRepository extends JpaRepository<RidingHood,Long> {
+public interface JpaRidingHoodRepository extends JpaRepository<RidingHood,Long> {
 }
