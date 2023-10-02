@@ -1,7 +1,5 @@
 package backend.lilaproject.models;
 
-import backend.lilaproject.models.Course;
-import backend.lilaproject.models.School;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +15,7 @@ import lombok.Setter;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idStudent;
+    private Long id;
 
     @Column(nullable = false)
     private String studentName;
@@ -28,9 +26,8 @@ public class Student {
     @Column(nullable = false)
     private String secondSurname;
 
-    @ManyToOne
-    @JoinColumn(name = "idCourse")
-    Course course;
-
+    @ManyToOne // Relación ManyToOne con la entidad School
+    @JoinColumn(name = "school_id") // Nombre de la columna de la clave externa en la tabla Student
+    private School school;
 }
 
