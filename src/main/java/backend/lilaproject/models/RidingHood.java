@@ -15,7 +15,7 @@ import lombok.Setter;
 public class RidingHood {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRidingHood;
+    private Long id;
 
     @Column(nullable = false)
     private String ridingHoodHow;
@@ -48,7 +48,7 @@ public class RidingHood {
     private String story;
 
     @OneToOne
-    @JoinColumn(name = "idStudent")
+    @JoinColumn(name = "student_id")
     Student student;
 
 }
