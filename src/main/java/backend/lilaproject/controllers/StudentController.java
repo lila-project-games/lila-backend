@@ -14,6 +14,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class StudentController {
 
     @Autowired
@@ -93,7 +94,7 @@ public class StudentController {
             }
         } catch (Exception e) {
             response.put("success", false);
-            response.put("error", "Internal Server Error");
+            response.put("error", e.getMessage());
             response.put("message", "An error occurred while processing the request.");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
         }

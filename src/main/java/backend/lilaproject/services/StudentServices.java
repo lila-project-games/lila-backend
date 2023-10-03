@@ -35,14 +35,11 @@ public class StudentServices {
             if (studentRepository.existsById(updatedStudent.getId())) {
                 return studentRepository.save(updatedStudent);
             } else {
-                // Si el estudiante no existe, puedes devolver null o lanzar una excepción
-                throw new IllegalArgumentException("Student not updated: Record with ID " + updatedStudent.getId() + " does not exist");
+                throw new IllegalArgumentException("Record with ID " + updatedStudent.getId() + " does not exist");
             }
         } catch (Exception e) {
             // Manejo de excepciones en caso de un error
             throw new RuntimeException("Student not updated: " + e.getMessage(), e);
         }
     }
-
-
 }

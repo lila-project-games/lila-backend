@@ -8,8 +8,6 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 
 public class Student {
@@ -38,11 +36,11 @@ public class Student {
         this.id = id;
     }
 
-    public String getStudentName() {
+    public String getName() {
         return studentName;
     }
 
-    public void setStudentName(String studentName) {
+    public void setName(String studentName) {
         this.studentName = studentName;
     }
 
