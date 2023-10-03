@@ -11,8 +11,6 @@ import javax.annotation.processing.Generated;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Entity
 
 public class School {
@@ -21,9 +19,6 @@ public class School {
     private Long id;
     @Column(nullable = false)
     private String schoolName;
-
-    @OneToMany(mappedBy = "school", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Student> students = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -39,22 +34,5 @@ public class School {
 
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
-
-    @Override
-    public String toString() {
-        return "School{" +
-                "id=" + id +
-                ", schoolName='" + schoolName + '\'' +
-                ", students=" + students +
-                '}';
     }
 }
