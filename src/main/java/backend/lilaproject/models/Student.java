@@ -2,9 +2,7 @@ package backend.lilaproject.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,8 +22,8 @@ public class Student {
     @Column(nullable = false)
     private String secondSurname;
 
-    @ManyToOne // Relación ManyToOne con la entidad School
-    @JoinColumn(name = "school_id") // Nombre de la columna de la clave externa en la tabla Student
+    @ManyToOne
+    @JoinColumn(name = "school_id")
     private School school;
 
     public Long getId() {
@@ -36,11 +34,11 @@ public class Student {
         this.id = id;
     }
 
-    public String getName() {
+    public String getStudentName() {
         return studentName;
     }
 
-    public void setName(String studentName) {
+    public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
 
@@ -78,5 +76,6 @@ public class Student {
                 ", school=" + school +
                 '}';
     }
+
 }
 

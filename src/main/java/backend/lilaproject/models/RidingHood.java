@@ -49,6 +49,9 @@ public class RidingHood {
     @JoinColumn(name = "student_id")
     Student student;
 
+    public RidingHood(Long ridingHoodId, String updateRidingHood) {
+    }
+
     public Long getId() {
         return id;
     }

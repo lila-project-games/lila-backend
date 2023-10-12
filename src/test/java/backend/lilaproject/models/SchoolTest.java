@@ -8,19 +8,19 @@ class SchoolTest {
     @Test
     void GetId() {
         School school = new School();
-        Long expectedId = 1L;
+        Long expectedId = 2L;
         school.setId(expectedId);
         Long actualId = school.getId();
-        assertEquals(expectedId, actualId);
+        assertEquals(2, actualId);
     }
 
     @Test
     void setId() {
         School school = new School();
-        Long expectedId = 456L;
+        Long expectedId = 2L;
         school.setId(expectedId);
         Long actualId = school.getId();
-        assertEquals(expectedId, actualId);
+        assertEquals(2, actualId);
     }
 
     @Test
@@ -29,7 +29,7 @@ class SchoolTest {
         String expectedName = "La Escuelona";
         school.setSchoolName(expectedName);
         String actualName = school.getSchoolName();
-        assertEquals(expectedName, actualName);
+        assertEquals("La Escuelona", actualName);
     }
 
     @Test
@@ -38,7 +38,7 @@ class SchoolTest {
         String expectedName = "La Escuelita";
         school.setSchoolName(expectedName);
         String actualName = school.getSchoolName();
-        assertEquals(expectedName, actualName);
+        assertEquals("La Escuelita", actualName);
 
     }
 }
