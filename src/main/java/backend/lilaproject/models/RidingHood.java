@@ -9,39 +9,48 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class RidingHood {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Lob
     @Column(nullable = false)
     private String ridingHoodHow;
 
+    @Lob
     @Column(nullable = false)
     private String ridingHoodObj;
 
+    @Lob
     @Column(nullable = false)
     private String wolfHow;
 
+    @Lob
     @Column(nullable = false)
     private String wolfObj;
 
+    @Lob
     @Column(nullable = false)
     private String grannyHow;
 
+    @Lob
     @Column(nullable = false)
     private String grannyObj;
 
+    @Lob
     @Column(nullable = false)
     private String hunterHow;
 
+    @Lob
     @Column(nullable = false)
     private String hunterObj;
 
+    @Lob
     @Column(nullable = false)
     private String drawRidingHood;
 
+    @Lob
     @Column(nullable = false)
     private String story;
 
