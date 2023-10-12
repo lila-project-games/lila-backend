@@ -42,4 +42,7 @@ public class StudentServices {
             throw new RuntimeException("Student not updated: " + e.getMessage(), e);
         }
     }
+    public List<Student> getStudentsBySchoolId(Long schoolId) {
+        return studentRepository.getBySchoolId(schoolId);
+    }
 }

@@ -1,5 +1,6 @@
 package backend.lilaproject.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,11 +30,11 @@ public class Student {
         this.id = id;
     }
 
-    public String getName() {
+    public String getStudentName() {
         return studentName;
     }
 
-    public void setName(String studentName) {
+    public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
 
