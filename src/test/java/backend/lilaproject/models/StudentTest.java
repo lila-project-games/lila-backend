@@ -43,43 +43,6 @@ class StudentTest {
     }
 
     @Test
-    void getFirstSurname() {
-        Student student = new Student();
-        String expectedFirstSurname = "Cardenas";
-        student.setFirstSurname(expectedFirstSurname);
-        String actualFirstSurname = student.getFirstSurname();
-        assertEquals("Cardenas", actualFirstSurname);
-    }
-
-    @Test
-    void setFirstSurname() {
-        Student student = new Student();
-        String expectedFirstSurname = "Contreras";
-        student.setFirstSurname(expectedFirstSurname);
-        String actualFirstSurname = student.getFirstSurname();
-        assertEquals("Contreras", actualFirstSurname);
-    }
-
-    @Test
-    void getSecondSurname() {
-        Student student = new Student();
-        String expectedSecondSurname = "Torres";
-        student.setSecondSurname(expectedSecondSurname);
-        String actualSecondSurname = student.getSecondSurname();
-        assertEquals("Torres", actualSecondSurname);
-
-    }
-
-    @Test
-    void setSecondSurname() {
-        Student student = new Student();
-        String expectedSecondSurname = "Castillo";
-        student.setSecondSurname(expectedSecondSurname);
-        String actualSecondSurname = student.getSecondSurname();
-        assertEquals("Castillo", actualSecondSurname);
-    }
-
-    @Test
     void getSchool() {
         Student student = new Student();
         School expedtedSchool = new School();
@@ -102,19 +65,12 @@ class StudentTest {
         Student student = new Student();
         student.setId(1L);
         student.setStudentName("Santiago");
-        student.setFirstSurname("Contreras");
-        student.setSecondSurname("Castillo");
 
 
-        String expectedToString = "Student{id=1, studentName='Santiago', firstSurname='Contreras', secondSurname='Castillo', school=null}";
+        String expectedToString = "Student{id=1, studentName='Santiago', school=null}";
         String actualToString = student.toString();
 
         assertEquals(expectedToString, actualToString);
     }
-
-
-
-
-
 
 }

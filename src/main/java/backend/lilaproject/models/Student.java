@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,12 +14,6 @@ public class Student {
 
     @Column(nullable = false)
     private String studentName;
-
-    @Column(nullable = false)
-    private String firstSurname;
-
-    @Column(nullable = false)
-    private String secondSurname;
 
     @ManyToOne
     @JoinColumn(name = "school_id")
@@ -42,22 +35,6 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public String getFirstSurname() {
-        return firstSurname;
-    }
-
-    public void setFirstSurname(String firstSurname) {
-        this.firstSurname = firstSurname;
-    }
-
-    public String getSecondSurname() {
-        return secondSurname;
-    }
-
-    public void setSecondSurname(String secondSurname) {
-        this.secondSurname = secondSurname;
-    }
-
     public School getSchool() {
         return school;
     }
@@ -71,11 +48,8 @@ public class Student {
         return "Student{" +
                 "id=" + id +
                 ", studentName='" + studentName + '\'' +
-                ", firstSurname='" + firstSurname + '\'' +
-                ", secondSurname='" + secondSurname + '\'' +
                 ", school=" + school +
                 '}';
     }
 
 }
-
