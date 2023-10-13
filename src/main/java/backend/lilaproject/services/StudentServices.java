@@ -18,9 +18,8 @@ public class StudentServices {
         return studentRepository.save(student);
     }
 
-    public Optional<Student> getById(Long id) {
-        return studentRepository.findById(id);
-    }
+    public Optional<Student> getById(Long id)  {
+        return studentRepository.findById(id);    }
 
     public List<Student> getAll() {
         return (List<Student>) studentRepository.findAll();
@@ -41,5 +40,8 @@ public class StudentServices {
             // Manejo de excepciones en caso de un error
             throw new RuntimeException("Student not updated: " + e.getMessage(), e);
         }
+    }
+    public List<Student> getStudentsBySchoolId(Long schoolId) {
+        return studentRepository.getBySchoolId(schoolId);
     }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api")
@@ -22,8 +23,10 @@ public class StudentController {
 
     @PostMapping("/students")
     public ResponseEntity<Map<String, Object>> createStudent(@RequestBody Student student) {
+        Logger logger = Logger.getLogger("MyLogger"); // Puedes nombrar tu logger como desees
         Map<String, Object> response = new HashMap<>();
         try {
+            logger.info("Received Student object: " + student.toString()); // Registra el objeto student
             Student studentCreated = studentServices.save(student);
             response.put("success", true);
             response.put("message", "Student created successfully");
@@ -32,7 +35,7 @@ public class StudentController {
         } catch (Exception e) { // If an error occurred, return a JSON with HTTP status 500 INTERNAL SERVER ERROR
             response.put("success", false);
             response.put("error", "Internal Server Error");
-            response.put("message", "An error occurred while processing the request.");
+            response.put("message", "An error occurred while processing the request. Error: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
         }
     }
@@ -73,6 +76,25 @@ public class StudentController {
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request.");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+        }
+    }
+
+    @GetMapping("/students/by/school/{id}")
+    public ResponseEntity<Map<String, Object>> getStudentsBySchoolId(@PathVariable Long id) {
+        Map<String, Object> response = new HashMap<>();
+
+        List<Student> students = studentServices.getStudentsBySchoolId(id);
+
+        if (students.isEmpty()) {
+            response.put("success", false);
+            response.put("error", "Not Found");
+            response.put("message", "No students found for the specified school ID.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response); // 404 Not Found
+        } else {
+            response.put("success", true);
+            response.put("message", "Students retrieved successfully");
+            response.put("data", students);
+            return ResponseEntity.ok(response); // 200 OK
         }
     }
 
