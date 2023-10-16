@@ -87,17 +87,14 @@ class StudentServicesTest {
     void updateStudent() {
         Long studentId = 1L;
         String updatedName = "UpdatedName";
-
         Student updatedStudent = new Student();
         updatedStudent.setId(studentId);
         updatedStudent.setStudentName(updatedName);
 
         when(jpaStudentRepository.existsById(studentId)).thenReturn(true);
-
         when(jpaStudentRepository.save(updatedStudent)).thenReturn(updatedStudent);
 
         Student result = studentServices.update(updatedStudent);
-
         assertEquals(updatedName, result.getStudentName());
     }
 }

@@ -35,11 +35,9 @@ public class RidingHoodServices {
             if (ridingHoodRepository.existsById(updatedRidingHood.getId())) {
                 return ridingHoodRepository.save(updatedRidingHood);
             } else {
-                // Si RidingHood no existe, puedes devolver null o lanzar una excepción
                 throw new IllegalArgumentException("RidingHood not updated: Record with ID " + updatedRidingHood.getId() + " does not exist");
             }
         } catch (Exception e) {
-            // Manejo de excepciones en caso de un error
             throw new RuntimeException("RidingHood not updated: " + e.getMessage(), e);
         }
     }
