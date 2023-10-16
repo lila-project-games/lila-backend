@@ -28,12 +28,12 @@ public class RidingHoodController {
             response.put("success", true);
             response.put("message", "RidingHood created successfully");
             response.put("data", ridingHoodCreated);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response); // 201 Created
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request.");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 
@@ -45,18 +45,18 @@ public class RidingHoodController {
             if (ridingHood.isPresent()) {
                 response.put("success", true);
                 response.put("data", ridingHood.get());
-                return ResponseEntity.status(HttpStatus.OK).body(response); // 200 OK
+                return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
                 response.put("success", false);
                 response.put("error", "Not Found");
                 response.put("message", "RidingHood with ID " + id + " not found.");
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response); // 404 Not Found
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request.");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 
@@ -67,12 +67,12 @@ public class RidingHoodController {
             List<RidingHood> ridingHoods = ridingHoodServices.getAllRidingHoods();
             response.put("success", true);
             response.put("data", ridingHoods);
-            return ResponseEntity.status(HttpStatus.OK).body(response); // 200 OK
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request.");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 
@@ -85,18 +85,18 @@ public class RidingHoodController {
                 response.put("success", true);
                 response.put("message", "RidingHood updated successfully");
                 response.put("data", result);
-                return ResponseEntity.status(HttpStatus.OK).body(response); // 200 OK
+                return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
                 response.put("success", false);
                 response.put("error", "Not Found");
                 response.put("message", "RidingHood not updated: Record with ID " + updatedRidingHood.getId() + " does not exist");
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response); // 404 Not Found
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request.");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 
@@ -107,12 +107,12 @@ public class RidingHoodController {
             ridingHoodServices.deleteRidingHoodById(id);
             response.put("success", true);
             response.put("message", "Deleted RidingHood with ID: " + id);
-            return ResponseEntity.status(HttpStatus.OK).body(response); // 200 OK
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request.");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 }

@@ -2,20 +2,19 @@ package backend.lilaproject.controllers;
 
 import backend.lilaproject.models.School;
 import backend.lilaproject.services.SchoolServices;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import static org.mockito.Mockito.when;
 import static org.mockito.ArgumentMatchers.any;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;import org.springframework.http.ResponseEntity;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.springframework.http.HttpStatus;
 
 
@@ -23,7 +22,7 @@ import org.springframework.http.HttpStatus;
 import java.util.Map;
 import java.util.List;
 import java.util.Optional;
-
+@SpringBootTest
 class SchoolControllerTest {
 
     @InjectMocks
@@ -116,9 +115,6 @@ class SchoolControllerTest {
         assertTrue((Boolean) responseEntity.getBody().get("success"));
         assertEquals("School updated successfully", responseEntity.getBody().get("message"));
     }
-
-
-
 
     @Test
     void deleteSchool() {

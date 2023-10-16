@@ -37,7 +37,6 @@ public class StudentServices {
                 throw new IllegalArgumentException("Record with ID " + updatedStudent.getId() + " does not exist");
             }
         } catch (Exception e) {
-            // Manejo de excepciones en caso de un error
             throw new RuntimeException("Student not updated: " + e.getMessage(), e);
         }
     }

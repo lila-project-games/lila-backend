@@ -23,20 +23,20 @@ public class StudentController {
 
     @PostMapping("/students")
     public ResponseEntity<Map<String, Object>> createStudent(@RequestBody Student student) {
-        Logger logger = Logger.getLogger("MyLogger"); // Puedes nombrar tu logger como desees
+        Logger logger = Logger.getLogger("MyLogger");
         Map<String, Object> response = new HashMap<>();
         try {
-            logger.info("Received Student object: " + student.toString()); // Registra el objeto student
+            logger.info("Received Student object: " + student.toString());
             Student studentCreated = studentServices.save(student);
             response.put("success", true);
             response.put("message", "Student created successfully");
             response.put("data", studentCreated);
-            return ResponseEntity.status(HttpStatus.CREATED).body(response); // 201 Created
-        } catch (Exception e) { // If an error occurred, return a JSON with HTTP status 500 INTERNAL SERVER ERROR
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request. Error: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 
@@ -48,18 +48,18 @@ public class StudentController {
             if (student.isPresent()) {
                 response.put("success", true);
                 response.put("data", student.get());
-                return ResponseEntity.status(HttpStatus.OK).body(response); // 200 OK
+                return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
                 response.put("success", false);
                 response.put("error", "Not Found");
                 response.put("message", "Student with ID " + id + " not found.");
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response); // 404 Not Found
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request.");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 
@@ -70,12 +70,12 @@ public class StudentController {
             List<Student> students = studentServices.getAll();
             response.put("success", true);
             response.put("data", students);
-            return ResponseEntity.status(HttpStatus.OK).body(response); // 200 OK
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request.");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 
@@ -89,12 +89,12 @@ public class StudentController {
             response.put("success", false);
             response.put("error", "Not Found");
             response.put("message", "No students found for the specified school ID.");
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response); // 404 Not Found
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         } else {
             response.put("success", true);
             response.put("message", "Students retrieved successfully");
             response.put("data", students);
-            return ResponseEntity.ok(response); // 200 OK
+            return ResponseEntity.ok(response);
         }
     }
 
@@ -107,18 +107,18 @@ public class StudentController {
                 response.put("success", true);
                 response.put("message", "Student updated successfully");
                 response.put("data", result);
-                return ResponseEntity.status(HttpStatus.OK).body(response); // 200 OK
+                return ResponseEntity.status(HttpStatus.OK).body(response);
             } else {
                 response.put("success", false);
                 response.put("error", "Not Found");
                 response.put("message", "Student not updated: Record with ID " + updatedStudent.getId() + " does not exist");
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response); // 404 Not Found
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", e.getMessage());
             response.put("message", "An error occurred while processing the request.");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 
@@ -129,12 +129,12 @@ public class StudentController {
             studentServices.delete(id);
             response.put("success", true);
             response.put("message", "Deleted student with ID: " + id);
-            return ResponseEntity.status(HttpStatus.OK).body(response); // 200 OK
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Internal Server Error");
             response.put("message", "An error occurred while processing the request.");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 }
